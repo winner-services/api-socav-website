@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone'
     ];
 
     /**
@@ -42,4 +43,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public static function findUser(string $name, string $phone, string $email, array $selects = ['*'])
+    {
+        return self::select($selects)->where('name', $name)
+            ->orWhere('phone', $phone)
+            ->orWhere('email', $email)
+            ->first();
+    }
+    public function isDesktop()
+    {
+        return true;
+    }
+
+    public function isTablet()
+    {
+        return false;
+    }
+
+    public function isMobile()
+    {
+        return true;
+    }
 }
