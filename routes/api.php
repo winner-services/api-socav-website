@@ -6,6 +6,7 @@ use App\Http\Controllers\Contact\ContactController;
 use App\Http\Controllers\Event\EventController;
 use App\Http\Controllers\Faqs\FaqsController;
 use App\Http\Controllers\Gallery\GalleryController;
+use App\Http\Controllers\Project\ProjectController;
 use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\Slide\SlideController;
 use App\Http\Controllers\Team\TeamController;
@@ -90,3 +91,18 @@ Route::controller(ContactController::class)->group(function () {
     Route::post('/createContact', 'storeContact');
     Route::delete('/deleteContact/{id}', 'deleteContact');
 });
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::controller(ProjectController::class)->group(function () {
+        Route::post('/createProject', 'createProject');
+        Route::post('/updateProject/{id}', 'updateProject');
+        Route::delete('/deleteProject/{id}', 'deleteProject');
+    });
+});
+
+Route::controller(ProjectController::class)->group(function () {
+    Route::get('/getSingleProject/{id}', 'getSingleProject');
+    Route::get('/getProjectData', 'getProjectData');
+});
+
+
