@@ -87,12 +87,6 @@ class MissionController extends Controller
             'description_en' => $request->description_en,
 
         ]);
-        // $mission = new Missions();
-        // $mission->title_fr = $request->title_fr;
-        // $mission->title_en = $request->title_en;
-        // $mission->description_fr = $request->description_fr;
-        // $mission->description_en = $request->description_en;
-        // $mission->create();
 
         $result = [
             'message' => "success",
@@ -162,12 +156,12 @@ class MissionController extends Controller
             ], 422);
         }
 
-        $mission->title_fr = $request->title_fr;
-        $mission->title_en = $request->title_en;
-        $mission->description_fr = $request->description_fr;
-        $mission->description_en = $request->description_en;
-        $mission->update();
-
+        $mission->update([
+            'title_fr' => $request->title_fr,
+            'title_en' => $request->title_en,
+            'description_fr' => $request->description_fr,
+            'description_en' => $request->description_en,
+        ]);
         $result = [
             'message' => "success",
             'success' => true,
