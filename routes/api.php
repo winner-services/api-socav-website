@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Event\EventController;
 use App\Http\Controllers\Faqs\FaqsController;
 use App\Http\Controllers\Gallery\GalleryController;
+use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\Slide\SlideController;
 use App\Http\Controllers\Team\TeamController;
 use App\Http\Controllers\User\UserController;
@@ -73,4 +74,12 @@ Route::controller(FaqsController::class)->group(function () {
     Route::put('/updateFaqs/{id}', 'updateFaqs');
     Route::get('/getFaqsData', 'getFaqsData');
     Route::delete('/deleteFaqs/{id}', 'deleteFaqs');
+});
+
+Route::controller(ServiceController::class)->group(function () {
+    Route::get('getServiceData', 'getServiceData');
+    Route::get('getSingleService/{id}', 'getSingleService');
+    Route::post('createService', 'createService');
+    Route::post('updateService', 'updateService');
+    Route::delete('deleteService/{id}', 'deleteService');
 });
