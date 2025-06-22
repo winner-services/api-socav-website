@@ -1,20 +1,13 @@
 <?php
 
+use App\Http\Controllers\About\AboutController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Slide\SlideController;
+use App\Http\Controllers\Team\TeamController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -32,4 +25,26 @@ Route::prefix('auth')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('/logout', [AuthController::class, 'logout']);
     });
+});
+
+Route::controller(SlideController::class)->group(function () {
+    Route::post('/createSlide', 'storeSlide');
+    Route::post('/updateSlide/{id}', 'updateSlide');
+    Route::delete('/deleteSlide/{id}', 'deleteSlide');
+    Route::get('/getAllSlideData', 'getAllSlideData');
+    Route::get('/getOneSilde', 'getOneSilde');
+});
+
+Route::controller(AboutController::class)->group(function () {
+    Route::post('/createAbout', 'createAbout');
+    Route::post('/updateAbout/{id}', 'updateAbout');
+    Route::get('/getAllAboutData', 'getAllAboutData');
+    Route::delete('/deleteAbout/{id}', 'deleteAbout');
+});
+
+Route::controller(TeamController::class)->group(function () {
+    Route::get('/getAllTeamData', 'getAllTeamData');
+    Route::post('/createTeam', 'storeTeam');
+    Route::post('/updateTeam/{id}', 'updateTeam');
+    Route::delete('/deleteTeam/{id}', 'deleteTeam');
 });

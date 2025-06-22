@@ -5,6 +5,349 @@
         "version": "0.1"
     },
     "paths": {
+        "/api/getAllAboutData": {
+            "get": {
+                "tags": [
+                    "About"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getAllAboutData",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/createAbout": {
+            "post": {
+                "tags": [
+                    "About"
+                ],
+                "summary": "Create",
+                "description": "Creation",
+                "operationId": "storeAbout",
+                "requestBody": {
+                    "description": "Enregistrer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "objective_fr",
+                                    "objective_en",
+                                    "title_en",
+                                    "title_fr",
+                                    "short_description_en",
+                                    "short_description_fr",
+                                    "adress_en",
+                                    "adress_fr",
+                                    "facebook",
+                                    "instagram",
+                                    "linkedin",
+                                    "twitter",
+                                    "email",
+                                    "phone",
+                                    "youtube",
+                                    "image1",
+                                    "image2"
+                                ],
+                                "properties": {
+                                    "objective_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "objective_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "title_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "title_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
+                                    },
+                                    "short_description_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "short_description_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "adress_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "adress_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
+                                    },
+                                    "facebook": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "instagram": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner"
+                                    },
+                                    "linkedin": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner"
+                                    },
+                                    "twitter": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
+                                    },
+                                    "youtube": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner"
+                                    },
+                                    "image1": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "image2": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/updateAbout/{id}": {
+            "post": {
+                "tags": [
+                    "About"
+                ],
+                "summary": "Update",
+                "description": "Update existing About entry",
+                "operationId": "updateAbout",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the About entry to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Update About information",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "objective_fr",
+                                    "objective_en",
+                                    "title_en",
+                                    "title_fr",
+                                    "short_description_en",
+                                    "short_description_fr",
+                                    "adress_en",
+                                    "adress_fr",
+                                    "facebook",
+                                    "instagram",
+                                    "linkedin",
+                                    "twitter",
+                                    "email",
+                                    "phone",
+                                    "youtube",
+                                    "image1",
+                                    "image2"
+                                ],
+                                "properties": {
+                                    "objective_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "objective_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "title_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "title_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
+                                    },
+                                    "short_description_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "short_description_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "adress_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "adress_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
+                                    },
+                                    "facebook": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "instagram": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner"
+                                    },
+                                    "linkedin": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner"
+                                    },
+                                    "twitter": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
+                                    },
+                                    "youtube": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner"
+                                    },
+                                    "image1": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "image2": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully updated"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/deleteAbout/{id}": {
+            "delete": {
+                "tags": [
+                    "About"
+                ],
+                "summary": "Delete",
+                "description": "Delete existing About entry",
+                "operationId": "deleteAbout",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the About entry to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully deleted"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/auth/login": {
             "post": {
                 "tags": [
@@ -83,6 +426,203 @@
                                 }
                             }
                         }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/getAllSlideData": {
+            "get": {
+                "tags": [
+                    "Slide"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getAllSlideData",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/getOneSilde": {
+            "get": {
+                "tags": [
+                    "Slide"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getOneSilde",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/createSlide": {
+            "post": {
+                "tags": [
+                    "Slide"
+                ],
+                "summary": "Create",
+                "description": "Creation",
+                "operationId": "storeSlide",
+                "requestBody": {
+                    "description": "Enregistrer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title_en",
+                                    "title_fr",
+                                    "image"
+                                ],
+                                "properties": {
+                                    "title_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "title_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "ysteme"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/updateSlide/{id}": {
+            "post": {
+                "tags": [
+                    "Slide"
+                ],
+                "summary": "Update",
+                "description": "Modification",
+                "operationId": "updateSlide",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Modifier",
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title_en",
+                                    "title_fr",
+                                    "image"
+                                ],
+                                "properties": {
+                                    "title_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "title_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "404": {
+                        "description": "Slide not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/deleteSlide/{id}": {
+            "delete": {
+                "tags": [
+                    "Slide"
+                ],
+                "summary": "Delete",
+                "description": "Suppression",
+                "operationId": "deleteSlide",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Slide deleted successfully"
+                    },
+                    "404": {
+                        "description": "Slide not found"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 },
                 "security": [
@@ -297,8 +837,16 @@
     },
     "tags": [
         {
+            "name": "About",
+            "description": "About"
+        },
+        {
             "name": "Authenticate",
             "description": "Authenticate"
+        },
+        {
+            "name": "Slide",
+            "description": "Slide"
         },
         {
             "name": "User",
