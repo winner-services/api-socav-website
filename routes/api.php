@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\About\AboutController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Contact\ContactController;
 use App\Http\Controllers\Event\EventController;
 use App\Http\Controllers\Faqs\FaqsController;
 use App\Http\Controllers\Gallery\GalleryController;
@@ -82,4 +83,10 @@ Route::controller(ServiceController::class)->group(function () {
     Route::post('createService', 'createService');
     Route::post('updateService', 'updateService');
     Route::delete('deleteService/{id}', 'deleteService');
+});
+
+Route::controller(ContactController::class)->group(function () {
+    Route::get('/getAllContactData', 'getContact');
+    Route::post('/createContact', 'storeContact');
+    Route::delete('/deleteContact/{id}', 'deleteContact');
 });
