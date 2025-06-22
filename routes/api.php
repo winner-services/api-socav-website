@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\About\AboutController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Event\EventController;
 use App\Http\Controllers\Gallery\GalleryController;
 use App\Http\Controllers\Slide\SlideController;
 use App\Http\Controllers\Team\TeamController;
@@ -57,4 +58,11 @@ Route::controller(GalleryController::class)->group(function () {
     Route::post('/updateGallery/{id}', 'updateGallery');
     Route::delete('/deleteGallery/{id}', 'deleteGallery');
     Route::get('/getSingleGallery/{id}', 'getSingleGallery');
+});
+
+Route::controller(EventController::class)->group(function () {
+    Route::post('/createEvent', 'createEvent');
+    Route::post('/updateEvent/{id}', 'updateEvent');
+    Route::get('/getEventData', 'getEventData');
+    Route::get('/getEventsById/{id}', 'getEventsById');
 });

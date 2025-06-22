@@ -435,6 +435,231 @@
                 ]
             }
         },
+        "/api/getEventData": {
+            "get": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getEventData",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/createEvent": {
+            "post": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "Create",
+                "description": "Creation",
+                "operationId": "createEvent",
+                "requestBody": {
+                    "description": "Enregistrer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title_en",
+                                    "title_fr",
+                                    "date",
+                                    "description_en",
+                                    "description_fr"
+                                ],
+                                "properties": {
+                                    "title_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "title_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "date": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "description_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "description_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "ysteme"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/updateEvent/{id}": {
+            "post": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "Update",
+                "description": "Modification",
+                "operationId": "updateEvent",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Modifier",
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title_en",
+                                    "title_fr",
+                                    "date",
+                                    "description_en",
+                                    "description_fr"
+                                ],
+                                "properties": {
+                                    "title_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "title_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "date": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "description_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "description_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "404": {
+                        "description": "news not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/getEventsById/{id}": {
+            "get": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "Afficher",
+                "description": "Afficher ",
+                "operationId": "getEventsById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de l'approv",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "succès",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "succès"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/getAllGalleyData": {
             "get": {
                 "tags": [
@@ -1298,6 +1523,10 @@
         {
             "name": "Authenticate",
             "description": "Authenticate"
+        },
+        {
+            "name": "Event",
+            "description": "Event"
         },
         {
             "name": "Gallery",
