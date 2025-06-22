@@ -1194,6 +1194,197 @@
                 ]
             }
         },
+        "/api/getMissionsData": {
+            "get": {
+                "tags": [
+                    "Mission"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getMissionsData",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/createMission": {
+            "post": {
+                "tags": [
+                    "Mission"
+                ],
+                "summary": "Create",
+                "description": "Creation",
+                "operationId": "createMission",
+                "requestBody": {
+                    "description": "Enregistrer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title_fr",
+                                    "title_en",
+                                    "description_fr",
+                                    "description_en"
+                                ],
+                                "properties": {
+                                    "title_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "title_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "description_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "description_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "ysteme"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/updateMission/{id}": {
+            "put": {
+                "tags": [
+                    "Mission"
+                ],
+                "summary": "Update",
+                "description": "Modification",
+                "operationId": "updateMission",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Modifier",
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title_fr",
+                                    "title_en",
+                                    "description_fr",
+                                    "description_en"
+                                ],
+                                "properties": {
+                                    "title_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "title_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "description_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "description_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "404": {
+                        "description": "Mission not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/deleteMission/{id}": {
+            "delete": {
+                "tags": [
+                    "Mission"
+                ],
+                "summary": "Delete",
+                "description": "Suppression",
+                "operationId": "deleteMission",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Slide deleted successfully"
+                    },
+                    "404": {
+                        "description": "Slide not found"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/getProjectData": {
             "get": {
                 "tags": [
@@ -2362,6 +2553,10 @@
         {
             "name": "Gallery",
             "description": "Gallery"
+        },
+        {
+            "name": "Mission",
+            "description": "Mission"
         },
         {
             "name": "Projets",

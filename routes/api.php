@@ -6,6 +6,7 @@ use App\Http\Controllers\Contact\ContactController;
 use App\Http\Controllers\Event\EventController;
 use App\Http\Controllers\Faqs\FaqsController;
 use App\Http\Controllers\Gallery\GalleryController;
+use App\Http\Controllers\Mission\MissionController;
 use App\Http\Controllers\Project\ProjectController;
 use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\Slide\SlideController;
@@ -103,6 +104,13 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::controller(ProjectController::class)->group(function () {
     Route::get('/getSingleProject/{id}', 'getSingleProject');
     Route::get('/getProjectData', 'getProjectData');
+});
+
+Route::controller(MissionController::class)->group(function () {
+    Route::post('/createMission', 'createMission');
+    Route::put('/updateMission/{id}', 'updateMission');
+    Route::delete('/deleteMission/{id}', 'deleteMission');
+    Route::get('/getMissionsData', 'getMissionsData');
 });
 
 
