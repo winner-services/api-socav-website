@@ -30,7 +30,7 @@ class ProjectController extends Controller
     public function getProjectData()
     {
         $data = Project::join('users', 'projects.addedBy', '=', 'users.id')
-            ->select('projects.*', 'users.name')->get();
+            ->select('projects.*', 'users.name as addedBy')->get();
         $result = [
             'message' => "success",
             'success' => true,
