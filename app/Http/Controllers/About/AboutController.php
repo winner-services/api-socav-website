@@ -44,7 +44,7 @@ class AboutController extends Controller
      * summary="Create",
      * description="Creation",
      * security={{ "bearerAuth":{ }}},
-     * operationId="storeAbout",
+     * operationId="createAbout",
      * tags={"About"},
      * @OA\RequestBody(
      *    required=true,
@@ -80,7 +80,7 @@ class AboutController extends Controller
      *     )
      * )
      */
-    public function storeAbout(Request $request)
+    public function createAbout(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'title_en' => 'required',
