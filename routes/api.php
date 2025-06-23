@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\About\AboutController;
+use App\Http\Controllers\Accompagnement\AccompagnementController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Contact\ContactController;
 use App\Http\Controllers\Event\EventController;
@@ -113,7 +114,7 @@ Route::controller(MissionController::class)->group(function () {
     Route::get('/getMissionsData', 'getMissionsData');
 });
 
-Route::controller(MissionController::class)->group(function () {
+Route::controller(AccompagnementController::class)->group(function () {
     Route::post('/createAccompaniement', 'createAccompaniement');
     Route::put('/updateAccompaniement/{id}', 'updateAccompaniement');
     Route::delete('/deleteAccompaniement/{id}', 'deleteAccompaniement');
