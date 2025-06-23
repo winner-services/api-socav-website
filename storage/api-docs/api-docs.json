@@ -44,8 +44,7 @@
                                     "title_fr",
                                     "short_description_en",
                                     "short_description_fr",
-                                    "adress_en",
-                                    "adress_fr",
+                                    "address",
                                     "facebook",
                                     "instagram",
                                     "linkedin",
@@ -87,15 +86,10 @@
                                         "format": "text",
                                         "example": "rdc"
                                     },
-                                    "adress_en": {
+                                    "address": {
                                         "type": "string",
                                         "format": "text",
                                         "example": "mpesa"
-                                    },
-                                    "adress_fr": {
-                                        "type": "string",
-                                        "format": "text",
-                                        "example": "winner@gmail.com"
                                     },
                                     "facebook": {
                                         "type": "string",
@@ -195,8 +189,7 @@
                                     "title_fr",
                                     "short_description_en",
                                     "short_description_fr",
-                                    "adress_en",
-                                    "adress_fr",
+                                    "address",
                                     "facebook",
                                     "instagram",
                                     "linkedin",
@@ -238,15 +231,10 @@
                                         "format": "text",
                                         "example": "rdc"
                                     },
-                                    "adress_en": {
+                                    "address": {
                                         "type": "string",
                                         "format": "text",
                                         "example": "mpesa"
-                                    },
-                                    "adress_fr": {
-                                        "type": "string",
-                                        "format": "text",
-                                        "example": "winner@gmail.com"
                                     },
                                     "facebook": {
                                         "type": "string",
@@ -339,6 +327,173 @@
                     },
                     "404": {
                         "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/getAccompaniementData": {
+            "get": {
+                "tags": [
+                    "Accompaniement"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getAccompaniementData",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/createAccompaniement": {
+            "post": {
+                "tags": [
+                    "Accompaniement"
+                ],
+                "summary": "Create",
+                "description": "Creation",
+                "operationId": "createAccompaniement",
+                "requestBody": {
+                    "description": "Enregistrer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "description_fr",
+                                    "description_en"
+                                ],
+                                "properties": {
+                                    "description_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "description_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "ysteme"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/updateAccompaniement/{id}": {
+            "put": {
+                "tags": [
+                    "Accompaniement"
+                ],
+                "summary": "Update",
+                "description": "Modification",
+                "operationId": "updateAccompaniement",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Modifier",
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "description_fr",
+                                    "description_en"
+                                ],
+                                "properties": {
+                                    "description_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "description_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "404": {
+                        "description": "Accompaniement not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/deleteAccompaniement/{id}": {
+            "delete": {
+                "tags": [
+                    "Accompaniement"
+                ],
+                "summary": "Delete",
+                "description": "Suppression",
+                "operationId": "deleteAccompaniement",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Slide deleted successfully"
+                    },
+                    "404": {
+                        "description": "Slide not found"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 },
                 "security": [
@@ -2533,6 +2688,10 @@
         {
             "name": "About",
             "description": "About"
+        },
+        {
+            "name": "Accompaniement",
+            "description": "Accompaniement"
         },
         {
             "name": "Authenticate",
