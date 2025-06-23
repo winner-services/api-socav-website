@@ -113,4 +113,11 @@ Route::controller(MissionController::class)->group(function () {
     Route::get('/getMissionsData', 'getMissionsData');
 });
 
+Route::controller(MissionController::class)->group(function () {
+    Route::post('/createAccompaniement', 'createAccompaniement');
+    Route::put('/updateAccompaniement/{id}', 'updateAccompaniement');
+    Route::delete('/deleteAccompaniement/{id}', 'deleteAccompaniement');
+    Route::get('/getAccompaniementData', 'getAccompaniementData');
+});
+
 
