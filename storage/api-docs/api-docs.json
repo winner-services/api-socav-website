@@ -2481,6 +2481,221 @@
                 ]
             }
         },
+        "/api/getAllTemoignage": {
+            "get": {
+                "tags": [
+                    "Temoignage"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getTemoignage",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/createTemoignage": {
+            "post": {
+                "tags": [
+                    "Temoignage"
+                ],
+                "summary": "Create",
+                "description": "Creation",
+                "operationId": "storeTemoignage",
+                "requestBody": {
+                    "description": "Enregistrer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "fonction_en",
+                                    "fonction_fr",
+                                    "description_en",
+                                    "description_fr",
+                                    "image"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "fonction_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "fonction_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "description_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "2024-09-19"
+                                    },
+                                    "description_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "ysteme"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/updateTemoignage/{id}": {
+            "post": {
+                "tags": [
+                    "Temoignage"
+                ],
+                "summary": "Update",
+                "description": "Modification",
+                "operationId": "updateTemoignage",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Modifier",
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "fonction_en",
+                                    "fonction_fr",
+                                    "description_en",
+                                    "description_fr",
+                                    "image"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "fonction_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "fonction_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "description_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "2024-09-19"
+                                    },
+                                    "description_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "404": {
+                        "description": "Temoignage not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/deleteTemoignage/{id}": {
+            "delete": {
+                "tags": [
+                    "Temoignage"
+                ],
+                "summary": "Delete",
+                "description": "Suppression",
+                "operationId": "deleteTemoignage",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Temoignage deleted successfully"
+                    },
+                    "404": {
+                        "description": "Temoignage not found"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/createUSer": {
             "post": {
                 "tags": [
@@ -2732,6 +2947,10 @@
         {
             "name": "Team",
             "description": "Team"
+        },
+        {
+            "name": "Temoignage",
+            "description": "Temoignage"
         },
         {
             "name": "User",
