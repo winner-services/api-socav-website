@@ -192,7 +192,6 @@ class AboutController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'Hotel_name' => 'required',
             'title_en' => 'required',
             'title_fr' => 'required',
             'short_description_en' => 'required',
