@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Contact;
 use App\Models\Events;
+use App\Models\Project;
 use App\Models\Temoignage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -288,6 +289,7 @@ class AboutController extends Controller
         $contact = Contact::count();
         $event = Events::count();
         $temoignage = Temoignage::count();
+        $projets = Project::count();
 
         $result = [
             'message' => "success",
@@ -295,7 +297,8 @@ class AboutController extends Controller
             'status' => 200,
             'contact' => $contact,
             'events' => $event,
-            'temoignage' => $temoignage
+            'temoignages' => $temoignage,
+            'projects' => $projets
         ];
         return response()->json($result);
 
