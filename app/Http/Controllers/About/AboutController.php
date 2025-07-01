@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Contact;
 use App\Models\Events;
+use App\Models\Temoignage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -286,13 +287,15 @@ class AboutController extends Controller
     {
         $contact = Contact::count();
         $event = Events::count();
+        $temoignage = Temoignage::count();
 
         $result = [
             'message' => "success",
             'success' => true,
             'status' => 200,
             'contact' => $contact,
-            'event' => $event
+            'events' => $event,
+            'temoignage' => $temoignage
         ];
         return response()->json($result);
 
