@@ -72,6 +72,7 @@ Route::controller(EventController::class)->group(function () {
     Route::post('/updateEvent/{id}', 'updateEvent');
     Route::get('/getEventData', 'getEventData');
     Route::get('/getEventsById/{id}', 'getEventsById');
+    Route::delete('/deleteEvent/{id}', 'deleteEvent');
 });
 
 Route::controller(FaqsController::class)->group(function () {
@@ -94,16 +95,10 @@ Route::controller(ContactController::class)->group(function () {
     Route::post('/createContact', 'storeContact');
     Route::delete('/deleteContact/{id}', 'deleteContact');
 });
-
-Route::middleware('auth:sanctum')->group(function () {
-    Route::controller(ProjectController::class)->group(function () {
-        Route::post('/createProject', 'createProject');
-        Route::post('/updateProject/{id}', 'updateProject');
-        Route::delete('/deleteProject/{id}', 'deleteProject');
-    });
-});
-
 Route::controller(ProjectController::class)->group(function () {
+    Route::post('/createProject', 'createProject');
+    Route::post('/updateProject/{id}', 'updateProject');
+    Route::delete('/deleteProject/{id}', 'deleteProject');
     Route::get('/getSingleProject/{id}', 'getSingleProject');
     Route::get('/getProjectData', 'getProjectData');
 });
