@@ -163,7 +163,7 @@ class TeamController extends Controller
             'title_en' => 'required',
             'title_fr' => 'required',
             'facebook' => 'nullable',
-            'email' => 'nullable|email',
+            'email' => 'nullable',
             'twitter' => 'nullable',
             'linkedin' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
