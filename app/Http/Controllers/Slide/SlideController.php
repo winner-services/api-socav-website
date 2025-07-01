@@ -98,7 +98,7 @@ class SlideController extends Controller
         $validator = Validator::make($request->all(), [
             'title_en' => 'required',
             'title_fr' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         if ($validator->fails()) {
             return response()->json([

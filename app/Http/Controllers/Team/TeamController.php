@@ -166,7 +166,7 @@ class TeamController extends Controller
             'email' => 'nullable|email',
             'twitter' => 'nullable',
             'linkedin' => 'nullable',
-            'image' => 'nullable',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
         if ($validator->fails()) {

@@ -151,7 +151,7 @@ class ServiceController extends Controller
             'title_fr' => 'required',
             'description_fr' => 'required',
             'description_en' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if ($validator->fails()) {

@@ -163,7 +163,7 @@ class ProjectController extends Controller
             'description_fr' => 'required',
             'description_en' => 'required',
             'date' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if ($validator->fails()) {

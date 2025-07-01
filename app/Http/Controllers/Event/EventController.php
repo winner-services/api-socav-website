@@ -156,7 +156,7 @@ class EventController extends Controller
             'date' => 'required',
             'description_en' => 'required',
             'description_fr' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if ($validator->fails()) {

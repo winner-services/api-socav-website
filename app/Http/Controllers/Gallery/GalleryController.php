@@ -159,7 +159,7 @@ class GalleryController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'image' => 'required',
+            'image' => 'nullable',
         ]);
 
         if ($validator->fails()) {
