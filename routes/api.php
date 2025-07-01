@@ -49,6 +49,7 @@ Route::controller(AboutController::class)->group(function () {
     Route::post('/updateAbout/{id}', 'updateAbout');
     Route::get('/getAllAboutData', 'getAllAboutData');
     Route::delete('/deleteAbout/{id}', 'deleteAbout');
+    Route::get('getCountgetDashboard', 'getCountgetDashboard');
 });
 
 Route::controller(TeamController::class)->group(function () {

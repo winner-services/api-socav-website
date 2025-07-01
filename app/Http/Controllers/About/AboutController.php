@@ -4,6 +4,7 @@ namespace App\Http\Controllers\About;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -278,5 +279,19 @@ class AboutController extends Controller
         }
         $about->delete();
         return response()->json(['message' => 'Successfully deleted', 'success' => true, 'status' => 200]);
+    }
+
+    public function getCountgetDashboard()
+    {
+        $contact = Contact::count();
+
+        $result = [
+            'message' => "success",
+            'success' => true,
+            'status' => 200,
+            'contact' => $contact
+        ];
+        return response()->json($result);
+
     }
 }
