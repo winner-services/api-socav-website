@@ -5,6 +5,7 @@ namespace App\Http\Controllers\About;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Contact;
+use App\Models\Events;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -284,12 +285,14 @@ class AboutController extends Controller
     public function getCountgetDashboard()
     {
         $contact = Contact::count();
+        $event = Events::count();
 
         $result = [
             'message' => "success",
             'success' => true,
             'status' => 200,
-            'contact' => $contact
+            'contact' => $contact,
+            'event' => $event
         ];
         return response()->json($result);
 
