@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Contact;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ContactMessage;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
@@ -50,11 +52,10 @@ class ContactController extends Controller
      *    required=true,
      *    description="Enregistrer",
      *    @OA\JsonContent(
-     *       required={"name","subject","message","email","phone"},
+     *       required={"name","subject","message","email"},
      *       @OA\Property(property="name", type="string", format="text",example="winner kambale"),
      *       @OA\Property(property="subject", type="string", format="text",example="rdc"),
      *       @OA\Property(property="message", type="string", format="text",example="mpesa"),
-     *       @OA\Property(property="phone", type="string", format="text",example="0997604471"),
      *       @OA\Property(property="email", type="string", format="text", example="winner@gmail.com")
      *    ),
      * ),
@@ -74,8 +75,7 @@ class ContactController extends Controller
             'name' => 'required',
             'subject' => 'required',
             'email' => 'required|email',
-            'message' => 'required',
-            'phone' => 'required'
+            'message' => 'required'
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -90,6 +90,13 @@ class ContactController extends Controller
             'message' => $request->message,
             'phone' => $request->phone
         ]);
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message
+        ];
+        Mail::to('destinataire@example.com')->send(new ContactMessage($data));
         $result = [
             'message' => "success",
             'success' => true,
