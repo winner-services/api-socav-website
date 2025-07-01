@@ -78,7 +78,6 @@ class TemoignageController extends Controller
             'fonction_fr' => 'nullable',
             'description_en' => 'required',
             'description_fr' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
         if ($validator->fails()) {
             return response()->json([
