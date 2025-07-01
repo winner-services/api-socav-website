@@ -85,7 +85,7 @@ Route::controller(ServiceController::class)->group(function () {
     Route::get('getServiceData', 'getServiceData');
     Route::get('getSingleService/{id}', 'getSingleService');
     Route::post('createService', 'createService');
-    Route::post('updateService', 'updateService');
+    Route::post('updateService/{id}', 'updateService');
     Route::delete('deleteService/{id}', 'deleteService');
 });
 
