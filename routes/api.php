@@ -125,7 +125,7 @@ Route::controller(AccompagnementController::class)->group(function () {
 Route::controller(TemoignageController::class)->group(function () {
     Route::get('/getAllTemoignage', 'getTemoignage');
     Route::post('/createTemoignage', 'storeTemoignage');
-    Route::post('/updateTemoignage/{id}', 'updateTemoignage');
+    Route::put('/updateTemoignage/{id}', 'updateTemoignage');
     Route::delete('/deleteTemoignage/{id}', 'deleteTemoignage');
 });
 

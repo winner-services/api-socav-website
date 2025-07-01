@@ -108,7 +108,7 @@ class TemoignageController extends Controller
         return response()->json($result);
     }
     /**
-     * @OA\Post(
+     * @OA\Put(
      * path="/api/updateTemoignage/{id}",
      * summary="Update",
      * description="Modification",
@@ -161,8 +161,7 @@ class TemoignageController extends Controller
             'fonction_en' => 'nullable',
             'fonction_fr' => 'nullable',
             'description_en' => 'required',
-            'description_fr' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'description_fr' => 'required'
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -170,22 +169,12 @@ class TemoignageController extends Controller
                 'errors' => $validator->errors()
             ], 422);
         }
-        if ($request->hasFile('image')) {
-            Storage::disk('public')->delete($temoignage->image);
-
-            $file = $request->file('image');
-            $path = $file->store('images/Temoignage', 'public');
-        } else {
-            $path = $temoignage->image;
-        }
-
         $temoignage->update([
             'name' => $request->name,
             'fonction_en' => $request->fonction_en,
             'fonction_fr' => $request->fonction_fr,
             'description_en' => $request->description_en,
-            'description_fr' => $request->description_fr,
-            'image' => $path
+            'description_fr' => $request->description_fr
         ]);
 
         $result = [
