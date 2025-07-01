@@ -216,7 +216,6 @@ class AboutController extends Controller
             ], 422);
         }
 
-        $about->Hotel_name = $request->Hotel_name;
         $about->title_en = $request->title_en;
         $about->title_fr = $request->title_fr;
         $about->short_description_en = $request->short_description_en;
