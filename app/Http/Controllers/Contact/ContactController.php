@@ -96,7 +96,7 @@ class ContactController extends Controller
             'subject' => $request->subject,
             'message' => $request->message
         ];
-        Mail::to('destinataire@example.com')->send(new ContactMessage($data));
+        Mail::to('socavrdc@gmail.com')->send(new ContactMessage($data));
         $result = [
             'message' => "success",
             'success' => true,
