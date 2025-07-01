@@ -297,8 +297,8 @@ class AboutController extends Controller
             'status' => 200,
             'contact' => $contact,
             'events' => $event,
-            'temoignages' => $temoignage,
-            'projets' => $projets
+            'temoignage' => $temoignage,
+            'project' => $projets
         ];
         return response()->json($result);
 
