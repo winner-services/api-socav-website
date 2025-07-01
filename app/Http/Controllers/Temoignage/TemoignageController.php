@@ -97,7 +97,7 @@ class TemoignageController extends Controller
             'fonction_fr' => $request->fonction_fr,
             'description_en' => $request->description_en,
             'description_fr' => $request->description_fr,
-            'image' => $path
+            // 'image' => $path
         ]);
         $result = [
             'message' => "success",
