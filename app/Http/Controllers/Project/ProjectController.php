@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Project;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -78,7 +79,6 @@ class ProjectController extends Controller
             'title_fr' => 'required',
             'description_fr' => 'required',
             'description_en' => 'required',
-            'date' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         if ($validator->fails()) {
@@ -95,7 +95,7 @@ class ProjectController extends Controller
             'description_fr' => $request->description_fr,
             'description_en' => $request->description_en,
             // 'addedBy' => $user->id,
-            'date' => $request->date,
+            'date' => Carbon::now()->toDateString(),
             'image' => $path
         ]);
         $result = [
@@ -161,7 +161,6 @@ class ProjectController extends Controller
             'title_fr' => 'required',
             'description_fr' => 'required',
             'description_en' => 'required',
-            'date' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -186,7 +185,7 @@ class ProjectController extends Controller
             'title_fr' => $request->title_fr,
             'description_fr' => $request->description_fr,
             'description_en' => $request->description_en,
-            'date' => $request->date,
+            'date' => Carbon::now()->toDateString(),
             // 'addedBy' => $user->id,
             'image' => $path
         ]);
