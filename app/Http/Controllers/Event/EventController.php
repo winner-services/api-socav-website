@@ -91,7 +91,7 @@ class EventController extends Controller
             'title_fr' => $request->title_fr,
             'date' => $request->date,
             'description_en' => $request->description_en,
-            'description_fr' => $request->description_en,
+            'description_fr' => $request->description_fr,
             'image' => $path
         ]);
         $result = [
@@ -180,7 +180,7 @@ class EventController extends Controller
             'title_fr' => $request->title_fr,
             'date' => $request->date,
             'description_en' => $request->description_en,
-            'description_fr' => $request->description_en,
+            'description_fr' => $request->description_fr,
             'image' => $path
         ]);
 
