@@ -29,8 +29,7 @@ class ProjectController extends Controller
      */
     public function getProjectData()
     {
-        $data = Project::join('users', 'projects.addedBy', '=', 'users.id')
-            ->select('projects.*', 'users.name as addedBy')->get();
+        $data = Project::latest()->get();
         $result = [
             'message' => "success",
             'success' => true,
@@ -72,7 +71,7 @@ class ProjectController extends Controller
      */
     public function createProject(Request $request)
     {
-        $user = Auth::user();
+        // $user = Auth::user();
 
         $validator = Validator::make($request->all(), [
             'title_en' => 'required',
@@ -95,7 +94,7 @@ class ProjectController extends Controller
             'title_fr' => $request->title_fr,
             'description_fr' => $request->description_fr,
             'description_en' => $request->description_en,
-            'addedBy' => $user->id,
+            // 'addedBy' => $user->id,
             'date' => $request->date,
             'image' => $path
         ]);
@@ -155,7 +154,7 @@ class ProjectController extends Controller
             return response()->json(['message' => 'service not found'], 404);
         }
 
-        $user = Auth::user();
+        // $user = Auth::user();
 
         $validator = Validator::make($request->all(), [
             'title_en' => 'required',
@@ -188,7 +187,7 @@ class ProjectController extends Controller
             'description_fr' => $request->description_fr,
             'description_en' => $request->description_en,
             'date' => $request->date,
-            'addedBy' => $user->id,
+            // 'addedBy' => $user->id,
             'image' => $path
         ]);
 

@@ -18,7 +18,6 @@ return new class extends Migration {
             $table->text('description_en');
             $table->date('date');
             $table->text('image');
-            $table->foreignId('addedBy')->constrained('users');
             $table->timestamps();
         });
     }

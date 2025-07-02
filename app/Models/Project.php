@@ -14,7 +14,6 @@ class Project extends Model
         'description_fr',
         'description_en',
         'image',
-        'date',
-        'addedBy'
+        'date'
     ];
 }
